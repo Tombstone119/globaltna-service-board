@@ -1,0 +1,213 @@
+/* ============================================================
+   GlobalTNA Design System — Colors & Type
+   Ported from globaltna-design-system/colors_and_type.css
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+@font-face {
+  font-family: 'Unicons';
+  src: url('/fonts/Unicons.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+:root {
+  /* Brand */
+  --gtna-navy:       #1F2A44;
+  --gtna-navy-700:   #2A3858;
+  --gtna-navy-500:   #3B4D74;
+  --gtna-navy-300:   #6B7A99;
+
+  --gtna-amber:      #E08A1F;
+  --gtna-amber-600:  #C9760F;
+  --gtna-amber-100:  #FCEEDA;
+
+  --gtna-blue:       #3F78E0;
+  --gtna-blue-100:   #E3ECFB;
+
+  /* Neutrals */
+  --gtna-white:      #FFFFFF;
+  --gtna-bg:         #F6F7F9;
+  --gtna-bg-soft:    #FAFBFC;
+  --gtna-border:     #E5E7EC;
+  --gtna-border-strong: #CACFD8;
+  --gtna-fg-muted:   #60697B;
+  --gtna-fg-soft:    #959CA9;
+  --gtna-fg:         #1F2A44;
+  --gtna-fg-inverse: #FFFFFF;
+
+  /* Semantic status */
+  --gtna-status-open-bg:        #FCEEDA;
+  --gtna-status-open-fg:        #B86B0A;
+  --gtna-status-open-dot:       #E08A1F;
+
+  --gtna-status-progress-bg:    #E3ECFB;
+  --gtna-status-progress-fg:    #234EA8;
+  --gtna-status-progress-dot:   #3F78E0;
+
+  --gtna-status-closed-bg:      #ECEEF2;
+  --gtna-status-closed-fg:      #60697B;
+  --gtna-status-closed-dot:     #959CA9;
+
+  --gtna-status-success-bg:     #DCEFE5;
+  --gtna-status-success-fg:     #1F7A4D;
+  --gtna-status-success-dot:    #2EA66B;
+
+  /* Trade accents */
+  --trade-plumbing:    #3F78E0;
+  --trade-electrical:  #E08A1F;
+  --trade-painting:    #C45A8B;
+  --trade-joinery:     #6B8E4E;
+
+  /* Aliases */
+  --fg1: var(--gtna-fg);
+  --fg2: var(--gtna-fg-muted);
+  --fg3: var(--gtna-fg-soft);
+  --bg1: var(--gtna-white);
+  --bg2: var(--gtna-bg);
+  --bg3: var(--gtna-bg-soft);
+  --primary:   var(--gtna-amber);
+  --primary-hover: var(--gtna-amber-600);
+  --on-primary: #FFFFFF;
+  --link:      var(--gtna-navy);
+  --border:    var(--gtna-border);
+
+  /* Radii & shadows */
+  --radius-sm: 4px;
+  --radius:    8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  --shadow-xs: 0 1px 2px rgba(31, 42, 68, 0.04);
+  --shadow-sm: 0 4px 12px rgba(31, 42, 68, 0.04);
+  --shadow:    0 8px 24px rgba(31, 42, 68, 0.06);
+  --shadow-md: 0 12px 32px rgba(31, 42, 68, 0.08);
+  --shadow-lg: 0 24px 48px rgba(31, 42, 68, 0.10);
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+  --space-9: 56px;
+  --space-10: 80px;
+  --space-11: 120px;
+
+  /* Type */
+  --font-sans: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  --fs-display-xl: 64px;
+  --fs-display:    48px;
+  --fs-h1:         36px;
+  --fs-h2:         28px;
+  --fs-h3:         22px;
+  --fs-h4:         18px;
+  --fs-body-lg:    17px;
+  --fs-body:       15px;
+  --fs-body-sm:    13px;
+  --fs-xs:         11px;
+
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semibold: 600;
+  --fw-bold:    700;
+  --fw-black:   800;
+
+  --lh-tight:   1.15;
+  --lh-snug:    1.35;
+  --lh-normal:  1.5;
+  --lh-relaxed: 1.7;
+
+  --ls-tight:   -0.02em;
+  --ls-display: -0.03em;
+  --ls-eyebrow: 0.08em;
+}
+
+/* Semantic typography (scoped under .gtna) */
+body, .gtna {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-relaxed);
+  color: var(--fg2);
+  background: var(--bg2);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.gtna h1, .gtna .h1 {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-display);
+  line-height: var(--lh-tight);
+  color: var(--fg1);
+  margin: 0 0 var(--space-4);
+}
+.gtna h2, .gtna .h2 {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-snug);
+  color: var(--fg1);
+  margin: 0 0 var(--space-3);
+}
+.gtna h3, .gtna .h3 {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+  color: var(--fg1);
+  margin: 0 0 var(--space-3);
+}
+.gtna h4, .gtna .h4 {
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-snug);
+  color: var(--fg1);
+  margin: 0 0 var(--space-2);
+}
+.gtna .display {
+  font-size: var(--fs-display);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-display);
+  line-height: 1.05;
+  color: var(--fg1);
+}
+.gtna .lead {
+  font-size: var(--fs-body-lg);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-relaxed);
+  color: var(--fg2);
+}
+.gtna p { margin: 0 0 var(--space-3); text-wrap: pretty; }
+.gtna .caption { font-size: var(--fs-body-sm); color: var(--fg3); }
+.gtna .eyebrow {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-eyebrow);
+  color: var(--primary);
+}
+.gtna code, .gtna .mono {
+  font-family: var(--font-mono);
+  font-size: 0.95em;
+  background: var(--bg2);
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  color: var(--fg1);
+}
+.gtna a {
+  color: var(--link);
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+.gtna a:hover { color: var(--gtna-navy); }
+
+.uil { font-family: 'Unicons'; font-style: normal; line-height: 1; }

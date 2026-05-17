@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 56" role="img" aria-label="GlobalTNA">
+  <defs>
+    <linearGradient id="gtna-mark-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E08A1F"></stop>
+      <stop offset="100%" stop-color="#C9760F"></stop>
+    </linearGradient>
+  </defs>
+  
+  <g transform="translate(4 4)">
+    <rect x="0" y="0" width="48" height="48" rx="12" fill="#1F2A44"></rect>
+    <path d="M24 12a12 12 0 1 0 12 12h-9.5" fill="none" stroke="#FFFFFF" stroke-width="3.6" stroke-linecap="round"></path>
+    <rect x="30" y="22" width="6" height="4" rx="1" fill="url(#gtna-mark-grad)"></rect>
+  </g>
+  
+  <g font-family="Manrope, system-ui, sans-serif" font-weight="800" letter-spacing="-0.02em">
+    <text x="60" y="29" font-size="20" fill="#1F2A44">Global</text>
+    <text x="124" y="29" font-size="20" fill="#E08A1F">TNA</text>
+    <text x="60" y="45" font-size="9" fill="#60697B" font-weight="600" letter-spacing="0.18em">SERVICE REQUEST BOARD</text>
+  </g>
+</svg>

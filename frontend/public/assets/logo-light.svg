@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 56" role="img" aria-label="GlobalTNA">
+  <g transform="translate(4 4)">
+    <rect x="0" y="0" width="48" height="48" rx="12" fill="#FFFFFF" fill-opacity="0.12"></rect>
+    <path d="M24 12a12 12 0 1 0 12 12h-9.5" fill="none" stroke="#FFFFFF" stroke-width="3.6" stroke-linecap="round"></path>
+    <rect x="30" y="22" width="6" height="4" rx="1" fill="#E08A1F"></rect>
+  </g>
+  <g font-family="Manrope, system-ui, sans-serif" font-weight="800" letter-spacing="-0.02em">
+    <text x="60" y="29" font-size="20" fill="#FFFFFF">Global</text>
+    <text x="124" y="29" font-size="20" fill="#E08A1F">TNA</text>
+    <text x="60" y="45" font-size="9" fill="#FFFFFF" fill-opacity="0.6" font-weight="600" letter-spacing="0.18em">SERVICE REQUEST BOARD</text>
+  </g>
+</svg>
