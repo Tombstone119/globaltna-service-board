@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const { CATEGORIES, STATUSES } = require('../constants');
-
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const { EMAIL_RE } = require('../lib/validators');
 
 const JobRequestSchema = new mongoose.Schema(
   {

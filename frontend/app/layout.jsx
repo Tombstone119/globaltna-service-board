@@ -1,5 +1,6 @@
 import '@/styles/tokens.css';
 import '@/styles/board.css';
+import { AuthProvider } from '@/lib/auth';
 
 export const metadata = {
   title: 'GlobalTNA — Service Request Board',
@@ -11,7 +12,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="gtna">{children}</body>
+      <body className="gtna">
+        <AuthProvider>{children}</AuthProvider>
+      </body>
     </html>
   );
 }

@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const JobRequest = require('../models/JobRequest');
 const { CATEGORIES, STATUSES } = require('../constants');
+const { requireAuth } = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -42,7 +43,7 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
-router.post('/', async (req, res, next) => {
+router.post('/', requireAuth, async (req, res, next) => {
   try {
     const body = req.body || {};
     const title = typeof body.title === 'string' ? body.title.trim() : '';
@@ -70,7 +71,7 @@ router.post('/', async (req, res, next) => {
   }
 });
 
-router.patch('/:id', async (req, res, next) => {
+router.patch('/:id', requireAuth, async (req, res, next) => {
   try {
     if (!isValidObjectId(req.params.id)) {
       return res.status(404).json({ error: 'Job not found' });
@@ -93,7 +94,7 @@ router.patch('/:id', async (req, res, next) => {
   }
 });
 
-router.delete('/:id', async (req, res, next) => {
+router.delete('/:id', requireAuth, async (req, res, next) => {
   try {
     if (!isValidObjectId(req.params.id)) {
       return res.status(404).json({ error: 'Job not found' });

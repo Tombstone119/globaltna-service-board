@@ -8,10 +8,12 @@ import TopBar from '@/components/TopBar';
 import StatusTag from '@/components/StatusTag';
 import { tradeByCategory, relTime, orderNum, STATUSES } from '@/lib/trades';
 import { api } from '@/lib/api';
+import { useAuth } from '@/lib/auth';
 
 export default function JobDetailPage() {
   const { id } = useParams();
   const router = useRouter();
+  const { user } = useAuth();
 
   const [job, setJob]         = useState(null);
   const [loading, setLoading] = useState(true);
@@ -206,39 +208,59 @@ export default function JobDetailPage() {
                 </div>
               </section>
             )}
+
+            {!user && (
+              <section>
+                <p style={{ color: 'var(--fg2)', fontSize: 13, margin: 0 }}>
+                  <Link href={`/login?next=/jobs/${id}`} className="btn btn-outline btn-sm">
+                    Log in to update or delete this job
+                  </Link>
+                </p>
+              </section>
+            )}
           </article>
 
           <aside className="detail-actions">
             <h4>Status</h4>
             <div className="current-tag"><StatusTag status={job.status} /></div>
 
-            <div className="field" style={{ marginBottom: 14 }}>
-              <label htmlFor="status-select">Update status</label>
-              <select
-                id="status-select"
-                value={job.status}
-                onChange={(e) => handleStatus(e.target.value)}
-                disabled={saving || deleting}
-              >
-                {STATUSES.map((s) => (
-                  <option key={s.value} value={s.value}>{s.value}</option>
-                ))}
-              </select>
-            </div>
+            {user ? (
+              <>
+                <div className="field" style={{ marginBottom: 14 }}>
+                  <label htmlFor="status-select">Update status</label>
+                  <select
+                    id="status-select"
+                    value={job.status}
+                    onChange={(e) => handleStatus(e.target.value)}
+                    disabled={saving || deleting}
+                  >
+                    {STATUSES.map((s) => (
+                      <option key={s.value} value={s.value}>{s.value}</option>
+                    ))}
+                  </select>
+                </div>
 
-            <h4>Danger zone</h4>
-            <div className="stack">
-              <button
-                type="button"
-                className="btn btn-danger"
-                onClick={handleDelete}
-                disabled={deleting || saving}
-                style={{ width: '100%', justifyContent: 'center' }}
-              >
-                <Trash2 size={14} />
-                {deleting ? 'Deleting…' : 'Delete job'}
-              </button>
-            </div>
+                <h4>Danger zone</h4>
+                <div className="stack">
+                  <button
+                    type="button"
+                    className="btn btn-danger"
+                    onClick={handleDelete}
+                    disabled={deleting || saving}
+                    style={{ width: '100%', justifyContent: 'center' }}
+                  >
+                    <Trash2 size={14} />
+                    {deleting ? 'Deleting…' : 'Delete job'}
+                  </button>
+                </div>
+              </>
+            ) : (
+              <p style={{ color: 'var(--fg2)', fontSize: 13, margin: '4px 0 0' }}>
+                <Link href={`/login?next=/jobs/${id}`} className="btn btn-outline btn-sm" style={{ width: '100%', justifyContent: 'center' }}>
+                  Log in to manage
+                </Link>
+              </p>
+            )}
           </aside>
         </div>
       </main>

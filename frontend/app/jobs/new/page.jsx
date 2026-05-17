@@ -1,17 +1,19 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Send } from 'lucide-react';
 import TopBar from '@/components/TopBar';
 import { TRADES } from '@/lib/trades';
 import { api } from '@/lib/api';
+import { useAuth } from '@/lib/auth';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function NewJobPage() {
   const router = useRouter();
+  const { user, isLoading } = useAuth();
   const [form, setForm] = useState({
     title: '',
     description: '',
@@ -23,6 +25,24 @@ export default function NewJobPage() {
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
   const [serverError, setServerError] = useState(null);
+
+  useEffect(() => {
+    if (!isLoading && !user) {
+      router.replace('/login?next=/jobs/new');
+    }
+  }, [isLoading, user, router]);
+
+  if (isLoading || !user) {
+    return (
+      <div className="app">
+        <TopBar showSearch={false} />
+        <aside className="rail" />
+        <main className="main">
+          <div className="feed"><div className="empty"><h3>Redirecting…</h3></div></div>
+        </main>
+      </div>
+    );
+  }
 
   const set = (k, v) => setForm((f) => ({ ...f, [k]: v }));
 
