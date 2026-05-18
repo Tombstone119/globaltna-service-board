@@ -7,7 +7,20 @@
   "scripts": {
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
-    "seed": "node src/seed.js"
+    "seed": "node src/seed.js",
+    "test": "jest --runInBand"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "globalSetup": "<rootDir>/tests/setup/globalSetup.js",
+    "globalTeardown": "<rootDir>/tests/setup/globalTeardown.js",
+    "setupFiles": [
+      "<rootDir>/tests/setup/env.js"
+    ],
+    "testMatch": [
+      "<rootDir>/tests/**/*.test.js"
+    ],
+    "testTimeout": 60000
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
@@ -18,6 +31,9 @@
     "mongoose": "^8.5.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.4"
+    "jest": "^30.4.2",
+    "mongodb-memory-server": "^11.1.0",
+    "nodemon": "^3.1.4",
+    "supertest": "^7.2.2"
   }
 }
